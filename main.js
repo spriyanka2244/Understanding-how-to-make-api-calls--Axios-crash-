@@ -1,19 +1,29 @@
 // GET REQUEST
 function getTodos() {
-    axios({
-        method:'get',
-        url:'https://jsonplaceholder.typicode.com/todos',
-        // to limit the data to 5
-        params:{
-            _limit:5
-        }
-    })
-    // .then(res =>console.log(res.data))
-    // to show the output in main screen use show output
-    .then(res =>showOutput(res)) 
-    // to show the output in main screen
-    .catch(err =>console.log(err))
-  }
+//     axios({
+//         method:'get',
+//         url:'https://jsonplaceholder.typicode.com/todos',
+//         // to limit the data to 5
+//         params:{
+//             _limit:5
+//         }
+//     })
+//     // .then(res =>console.log(res.data))
+//     // to show the output in main screen use show output
+//     .then(res =>showOutput(res)) 
+//     // to show the output in main screen
+//     .catch(err =>console.log(err))
+//   
+
+
+// short cut
+ axios.get('https://jsonplaceholder.typicode.com/todos',{params:{
+    _limit:5
+ }}) 
+ .then(res =>showOutput(res)) 
+ .catch(err =>console.log(err))
+
+}
   
   // POST REQUEST
   function addTodo() {
