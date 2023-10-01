@@ -26,17 +26,27 @@ function getTodos() {
   
   // POST REQUEST
   function addTodo() {
-    axios({
-        method:'post',
-        url:'https://jsonplaceholder.typicode.com/todos',
-        data:{
-            title:'New Todo',
-            completed:false
+//     axios({
+//         method:'post',
+//         url:'https://jsonplaceholder.typicode.com/todos',
+//         data:{
+//             title:'New Todo',
+//             completed:false
 
-        }
-  })
-  .then(res => showOutput(res))
-  .catch(err =>console.log(err))
+//         }
+//   })
+//   .then(res => showOutput(res))
+//   .catch(err =>console.log(err))
+
+//   short cut
+axios
+.post('https://jsonplaceholder.typicode.com/todos',{
+    title:'New Todo',
+    completed:false
+})
+.then(res =>showOutput(res))
+.catch(err=>console.log(err))
+
   }
   
   // PUT/PATCH REQUEST
