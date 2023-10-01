@@ -17,9 +17,8 @@ function getTodos() {
 
 
 // short cut
- axios.get('https://jsonplaceholder.typicode.com/todos',{params:{
-    _limit:5
- }}) 
+ axios
+ .get('https://jsonplaceholder.typicode.com/todos?_limit=5',) 
  .then(res =>showOutput(res)) 
  .catch(err =>console.log(err))
 
@@ -27,7 +26,17 @@ function getTodos() {
   
   // POST REQUEST
   function addTodo() {
-    console.log('POST Request');
+    axios({
+        method:'post',
+        url:'https://jsonplaceholder.typicode.com/todos',
+        data:{
+            title:'New Todo',
+            completed:false
+
+        }
+  })
+  .then(res => showOutput(res))
+  .catch(err =>console.log(err))
   }
   
   // PUT/PATCH REQUEST
