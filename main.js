@@ -2,9 +2,16 @@
 function getTodos() {
     axios({
         method:'get',
-        url:'https://jsonplaceholder.typicode.com/todos'
+        url:'https://jsonplaceholder.typicode.com/todos',
+        // to limit the data to 5
+        params:{
+            _limit:5
+        }
     })
-    .then(res =>console.log(res.data))
+    // .then(res =>console.log(res.data))
+    // to show the output in main screen use show output
+    .then(res =>showOutput(res)) 
+    // to show the output in main screen
     .catch(err =>console.log(err))
   }
   
