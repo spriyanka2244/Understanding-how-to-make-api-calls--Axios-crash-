@@ -50,8 +50,17 @@ axios
   }
   
   // PUT/PATCH REQUEST
+//   major diference of put /patch
+// put used to replace entier resourse
+// patch used to update in incremental 
   function updateTodo() {
-    console.log('PUT/PATCH Request');
+    axios
+        .patch('https://jsonplaceholder.typicode.com/todos/1',{
+          title:'updated Todo',
+          completed:true
+        })
+        .then(res =>showOutput(res))
+        .catch(err => console.error(err))
   }
   
   // DELETE REQUEST
