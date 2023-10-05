@@ -89,7 +89,21 @@ axios
   
   // CUSTOM HEADERS
   function customHeaders() {
-    console.log('Custom Headers');
+    // validate the token
+    const config ={
+      headers:{
+        'Content-Type':'application/json',
+        Authorization:'sometoken'
+      }
+    }
+
+    axios
+      .post('https://jsonplaceholder.typicode.com/todos/ ',{
+      title:'New Todo',
+      completed:false
+    },config)
+     .then(res => showOutput(res))
+    .catch(err => console.error(err));
   }
   
   // TRANSFORMING REQUESTS & RESPONSES
@@ -108,8 +122,21 @@ axios
   }
   
   // INTERCEPTING REQUESTS & RESPONSES
-  
-  // AXIOS INSTANCES
+  // to get output in inspect  when any method is called
+  axios.interceptors.request.use(config =>{
+    console.log(`${config.method.toUpperCase()} request sent to ${
+      config.url
+     } at ${new Date().getTime()}`
+     );
+
+      return config;
+  },
+  error =>{
+    return Promise.reject(error);
+  }
+  );
+
+    // AXIOS INSTANCES
   
   // Show output in browser
   function showOutput(res) {
