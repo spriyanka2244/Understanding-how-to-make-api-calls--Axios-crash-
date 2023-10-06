@@ -198,10 +198,10 @@ axios
 
     // AXIOS INSTANCES
     const axiosInstance =axios.create({
-      // other co
+      // other custom settings
       baseURL:'https://jsonplaceholder.typicode.com'
     });
-    axiosInstance.get('/comments').then(res =>showOutput(res));
+    // axiosInstance.get('/comments').then(res =>showOutput(res));
 
 
   
