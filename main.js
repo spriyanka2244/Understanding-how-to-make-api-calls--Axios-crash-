@@ -132,7 +132,11 @@ axios
   // ERROR HANDLING
   function errorHandling() {
     axios
-    .get('https://jsonplaceholder.typicode.com/todoss') 
+    .get('https://jsonplaceholder.typicode.com/todoss',{
+      ValidityState:function(status){
+        return status < 500; //Reject only if status is greater or equal to 500
+      }
+    }) 
     .then(res =>showOutput(res)) 
     .catch(err =>{
          if(err.response){
@@ -192,6 +196,7 @@ axios
 
     // AXIOS INSTANCES
     const axiosInstance =axios.create({
+      // other co
       baseURL:'https://jsonplaceholder.typicode.com'
     });
     axiosInstance.get('/comments').then(res =>showOutput(res));
