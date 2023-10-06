@@ -158,10 +158,10 @@ axios
   
   // CANCEL TOKEN
   function cancelToken() {
-    const source =axios.cancelToken.source();
+    const source =axios.CancelToken.source();
     
     axios
-    .get('https://jsonplaceholder.typicode.com/todoss',{
+    .get('https://jsonplaceholder.typicode.com/todos',{
         cancelToken:source.token
     }) 
     .then(res =>showOutput(res)) 
@@ -191,6 +191,8 @@ axios
   );
 
     // AXIOS INSTANCES
+
+
   
   // Show output in browser
   function showOutput(res) {
